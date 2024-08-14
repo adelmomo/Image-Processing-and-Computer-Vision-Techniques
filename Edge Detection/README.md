@@ -12,13 +12,13 @@ This project implements one of the most fundamental concepts in Computer Vision:
 1. Clone the repository:
 
     ```bash
-    git clone "https://github.com/adelmomo/Image Processing and Computer Vision/Edge Detection"
+    git clone "https://github.com/adelmomo/Image Processing and Computer Vision Techniques/Edge Detection"
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd "Image Processing and Computer Vision/Edge Detection"
+    cd "Image Processing and Computer Vision Techniques/Edge Detection"
     ```
 
 3. Install dependencies:
