@@ -91,7 +91,6 @@ class ImageTransformation:
             raise ValueError(f"Kernel size should be an odd number")
         
         img=cv2.imread(image)
-
         '''convolving the image with the median filter (subimage)
         applying mirror padding to maintain the same size as the input image after convolution'''
         padded_img=np.pad(img,((ksize//2,ksize//2),(ksize//2,ksize//2),(0,0)),'reflect')
