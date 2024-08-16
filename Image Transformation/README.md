@@ -1,6 +1,6 @@
 # Image Transformation
 
-This project implements various methods of image transformation, focusing on mapping an original image to a transformed version by applying specific functions (kernels) to enhance image quality. The primary objectives include tasks such as noise reduction (e.g., White Noise Removal) and contrast enhancement (e.g., Histogram Equalization). This project serves as both an educational resource and a practical example, providing foundational insights into the basics of image processing for those interested in the field.
+This project implements various methods of image transformation, focusing on mapping an original image to a transformed version by applying specific functions (kernels) to enhance image quality. The primary objectives include tasks such as noise reduction (e.g., Salt & Pepper Noise Removal) and contrast enhancement (e.g., Histogram Equalization). This project serves as both an educational resource and a practical example, providing foundational insights into the basics of image processing for those interested in the field.
 
 ## Table of Contents
 
@@ -37,11 +37,14 @@ Here is an example of the input image and the resulting image outputs after perf
 ### Image Output After Histogram Equalization:
 ![Output Image](./histogram_equalization_output.jpg)
 
-### Input Image:
-![Input Image](./sample.jpg)
-
 ### Image Output After Gaussian Blurring:
 ![Output Image](./gaussian_blur_output.jpg)
+
+### Input Image with Salt & Pepper Noise:
+![Input Image](./sample_with_salt_and_pepper.jpg)
+
+### Image Output After Median Filtering:
+![Output Image](./median_output.jpg)
 
 ## Usage
 
@@ -56,3 +59,8 @@ python main.py -i sample.jpg -o histogram_equalization_output.jpg histogram
 
 ```bash
 python main.py -i sample.jpg -std 2 -ksize 7 -o gaussian_blur_output.jpg  gaussian
+```
+3) Median Filtering
+
+```bash
+python main.py -i sample_with_salt_and_pepper.jpg -ksize 5 -o median_output.jpg median
