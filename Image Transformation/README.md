@@ -51,7 +51,7 @@ To run the procedure on a sample image, use the following command:
 
 ```bash
 python main.py -i sample.jpg -o histogram_equalization_output.jpg histogram
-
+```
 2) Gaussian Blurring
 
 ```bash
