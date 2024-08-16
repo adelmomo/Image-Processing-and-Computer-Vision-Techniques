@@ -19,7 +19,7 @@ class ImageTransformation:
         cumsum=np.cumsum(hist)
         masked_cumsum=np.ma.masked_equal(cumsum,0)
         
-        new_cumsum=np.round(255 * (masked_cumsum-masked_cumsum.min())/(img.shape[0]*img.shape[1]-masked_cumsum.min()))
+        new_cumsum=np.round(255 * (masked_cumsum-masked_cumsum.min())/(masked_cumsum.max()-masked_cumsum.min()))
         new_cumsum=np.ma.filled(new_cumsum,0)
         
       
@@ -62,7 +62,8 @@ class ImageTransformation:
         gaussian_kernel=gaussian_kernel/np.sum(gaussian_kernel)
         
 
-        #convolving the Gaussian kernel with the image
+        '''convolving the Gaussian kernel with the image
+        applying mirror padding to maintain the same size as the input image after convolution'''
         padded_img=np.pad(img,((ksize//2,ksize//2),(ksize//2,ksize//2),(0,0)),'reflect')
         output_img=np.zeros_like(padded_img)
         
@@ -70,6 +71,37 @@ class ImageTransformation:
             for j in range(ksize//2,padded_img.shape[1] - ksize//2):
 
                 output_img[i,j]=np.sum(padded_img[i-ksize//2:i+ksize//2+1,j-ksize//2:j+ksize//2+1]*gaussian_kernel).astype(np.uint8)
+        
+        #unpadding
+        output_img=output_img[ksize//2:output_img.shape[0]-ksize//2, ksize//2:output_img.shape[1]-ksize//2]
+        return output_img
+    
+    def median_filter(self, image : str, ksize : int) -> np.ndarray:
+        """
+        The `median_filter` function enhances an image by removing noises in the given image (e.g., Salt & Pepper), resulting in a image without noises.
+
+        Args:
+            image (str): The path to the image to be processed.
+            ksize (int): The size of the filter (e.g., 3).
+        Returns:
+            np.ndarray: An image without outliers (e.g., Salt & Pepper).
+        """
+
+        if ksize%2==0:
+            raise ValueError(f"Kernel size should be an odd number")
+        
+        img=cv2.imread(image)
+
+        '''convolving the image with the median filter (subimage)
+        applying mirror padding to maintain the same size as the input image after convolution'''
+        padded_img=np.pad(img,((ksize//2,ksize//2),(ksize//2,ksize//2),(0,0)),'reflect')
+        output_img=np.zeros_like(padded_img)
+
+        for i in range(ksize//2,padded_img.shape[0] - ksize//2):
+            for j in range(ksize//2,padded_img.shape[1] - ksize//2):
+                subimage=padded_img[i-ksize//2:i+ksize//2+1,j-ksize//2:j+ksize//2+1].flatten()
+                output_img[i,j]=np.sort(subimage)[len(subimage)//2]
+        
         
         #unpadding
         output_img=output_img[ksize//2:output_img.shape[0]-ksize//2, ksize//2:output_img.shape[1]-ksize//2]
