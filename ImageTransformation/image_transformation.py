@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
+from typing import Union
 
 class ImageTransformation:
-    def histogram_equalization(self, image : str) -> np.ndarray:
+    def histogram_equalization(self, image : Union[str, np.ndarray]) -> np.ndarray:
         """
         The `histogram_equalization` function enhances an image by redistributing pixel intensities, resulting in a more uniform intensity distribution.
 
@@ -12,8 +13,10 @@ class ImageTransformation:
         Returns:
             np.ndarray: The enhanced image with equalized histogram.
         """
-
-        img = cv2.imread(image)
+        if isinstance(image,str):
+            img = cv2.imread(image)
+        else:
+            img=image.copy()
 
         hist,_=np.histogram(img.flatten(),256,(0,256))
         cumsum=np.cumsum(hist)
@@ -28,7 +31,7 @@ class ImageTransformation:
     
         return img
     
-    def gaussian_blurring(self, image : str, ksize : int, sigma : int) -> np.ndarray:
+    def gaussian_blurring(self, image : Union[str, np.ndarray], ksize : int, sigma : int) -> np.ndarray:
         """
         The `gaussian_blurring` function enhances an image by removing noises in the given image (e.g., Gaussian Noise / White Noise), resulting in a smoother image.
 
@@ -44,7 +47,11 @@ class ImageTransformation:
             raise ValueError(f"Kernel size should be an odd number")
         
         sigma=max(1,sigma)
-        img=cv2.imread(image)
+        
+        if isinstance(image,str):
+            img=cv2.imread(image)
+        else:
+            img=image.copy()
 
         #creating the Gaussian kernel
         gaussian_kernel=np.zeros((ksize,ksize),dtype=np.float32)
@@ -76,7 +83,7 @@ class ImageTransformation:
         output_img=output_img[ksize//2:output_img.shape[0]-ksize//2, ksize//2:output_img.shape[1]-ksize//2]
         return output_img
     
-    def median_filter(self, image : str, ksize : int) -> np.ndarray:
+    def median_filter(self, image : Union[str, np.ndarray], ksize : int) -> np.ndarray:
         """
         The `median_filter` function enhances an image by removing noises in the given image (e.g., Salt & Pepper), resulting in a image without noises.
 
@@ -90,7 +97,11 @@ class ImageTransformation:
         if ksize%2==0:
             raise ValueError(f"Kernel size should be an odd number")
         
-        img=cv2.imread(image)
+        if isinstance(image,str):
+            img=cv2.imread(image)
+        else:
+            img=image.copy()
+            
         '''convolving the image with the median filter (subimage)
         applying mirror padding to maintain the same size as the input image after convolution'''
         padded_img=np.pad(img,((ksize//2,ksize//2),(ksize//2,ksize//2),(0,0)),'reflect')

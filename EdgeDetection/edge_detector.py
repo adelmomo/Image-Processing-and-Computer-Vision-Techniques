@@ -1,7 +1,10 @@
 import cv2
 import numpy as np
+from Utils import Utils
+from typing import Union
+
 class EdgeDetector:
-    methods = {'Canny':{'threshold1':100,'threshold2':200},'Sobel':{'dx':1,'dy':1}}
+    methods = {'Canny':{'threshold1':100,'threshold2':150},'Sobel':{'dx':1,'dy':1}}
     gaussian_kernel_size = 7
     gaussian_kernel_standard_deviation = 0.0
 
@@ -20,7 +23,8 @@ class EdgeDetector:
         
         self.method=method
         self.preprocessing=preprocessing
-    def detect(self,image:str) -> np.ndarray:
+
+    def detect(self,image: Union[str, np.ndarray]) -> np.ndarray:
         """
         EdgeDetector detect function. This function computes the edges inside an image, using one of the methods [Canny | Sobel].
 
@@ -30,9 +34,12 @@ class EdgeDetector:
         Returns:
             The detect function returns the edges inside the given image as np.ndarray.
         """
-        img = cv2.imread(image)
+        if isinstance(image,str):
+            img = Utils.read_image(image)
+        else:
+            img=image.copy()
         if img.shape[2] == 3:
-            img = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
+            img = Utils.convert_rgb_to_gray(img)
         if self.preprocessing:
             img = cv2.GaussianBlur(img,ksize=(self.gaussian_kernel_size,self.gaussian_kernel_size),sigmaX=self.gaussian_kernel_standard_deviation)
         if self.method == 'Canny':
