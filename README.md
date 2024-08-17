@@ -26,6 +26,7 @@ This repository is intended to demonstrate and implement the fundamental topics 
     <img src="./ImageTransformation/median_output.jpg" alt="Input Image" width="300" style="border: 1px solid #ddd; padding: 5px;">
   </div>
 </p>
+
 - **Edge Detection**: Implementations of edge detection algorithms to identify and outline features within images.
 <p align="center">
   <div style="display: inline-block; text-align: center; margin-right: 20px;">
