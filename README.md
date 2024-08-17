@@ -3,7 +3,7 @@ This repository is intended to demonstrate and implement the fundamental topics 
 
 ## Features
 
-- **Image Transformation**: Tools and algorithms for altering and enhancing images through various transformation techniques.
+- **ImageTransformation**: Tools and algorithms for altering and enhancing images through various transformation techniques.
 <p align="center">
   <div style="display: inline-block; text-align: center; margin-right: 20px;">
     <div><strong>Input Image</strong></div>
@@ -27,7 +27,7 @@ This repository is intended to demonstrate and implement the fundamental topics 
   </div>
 </p>
 
-- **Edge Detection**: Implementations of edge detection algorithms to identify and outline features within images.
+- **EdgeDetection**: Implementations of edge detection algorithms to identify and outline features within images.
 <p align="center">
   <div style="display: inline-block; text-align: center; margin-right: 20px;">
     <div><strong>Input Image</strong></div>
@@ -45,7 +45,7 @@ This is an application that strongly relies on Edge Detection to detect whether 
 
 <p align="center">
   <video width="350" controls>
-    <source src="edge_detection_application_demo.mp4" type="video/mp4">
+    <source src="edge_detection_application_demo.mov" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </p>
