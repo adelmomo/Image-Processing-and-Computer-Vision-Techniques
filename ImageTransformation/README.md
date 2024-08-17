@@ -12,13 +12,13 @@ This project implements various methods of image transformation, focusing on map
 1. Clone the repository:
 
     ```bash
-    git clone "https://github.com/adelmomo/Image Processing and Computer Vision Techniques"
+    git clone "https://github.com/adelmomo/Image-Processing-and-Computer-Vision-Techniques"
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd "Image Processing and Computer Vision Techniques/Image Transformation"
+    cd "Image-Processing-and-Computer-Vision-Techniques/ImageTransformation"
     ```
 
 3. Install dependencies:
