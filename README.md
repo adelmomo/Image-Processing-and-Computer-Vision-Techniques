@@ -40,11 +40,11 @@ This repository is intended to demonstrate and implement the fundamental topics 
 
 ## Edge Detection Application Demo
 
-This is an application that strongly relies on Edge Detection to detect whether the Camera is covered or not.Here is a demo video showcasing the output after running the application:
+This is an application that strongly relies on Edge Detection to detect whether the Camera is covered or not. Here is a demo video showcasing the output after running the application:
 
 <p align="center">
   <video width="600" controls>
-    <source src="edge_detection_application_demo.mp4" type="video/mp4">
+    <source src="./edge_detection_application_demo.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </p>
