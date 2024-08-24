@@ -43,7 +43,7 @@ This repository is intended to demonstrate and implement the fundamental topics 
 
 This is an application that strongly relies on Edge Detection to detect whether the Camera is covered or not. Here is a demo video showcasing the output after running the application:
 
-https://github.com/user-attachments/assets/aa3c7594-9d34-4fbf-b518-87a162196190
+https://github.com/user-attachments/assets/79bcd89e-ce39-4dee-9a63-e590748f968d
 
 ## Sub-Repositories
 
