@@ -5,7 +5,7 @@ import cv2
 args_parser=argparse.ArgumentParser()
 args_parser.add_argument("-i","--image",type=str,required=True,help="The path to an image")
 args_parser.add_argument("-k","--clusters",type=int,default=10,help="The number of clusters")
-args_parser.add_argument("-n","--iterations",type=str,default=20,help="The number of iterations")
+args_parser.add_argument("-n","--iterations",type=int,default=20,help="The number of iterations")
 args_parser.add_argument("-o","--output",type=str,default="output.jpg",help="The output image path")
 args=vars(args_parser.parse_args())
 

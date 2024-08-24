@@ -27,7 +27,7 @@ class Segmentation:
         """
         img=cv2.imread(image)
         flattened_img=np.reshape(img,(-1,3))
-        clusters=flattened_img[np.random.choice(len(flattened_img),self.k)]
+        clusters=flattened_img[np.random.choice(len(flattened_img),self.k)].astype(np.float32)
     
         for _ in range(self.iterations):
             
