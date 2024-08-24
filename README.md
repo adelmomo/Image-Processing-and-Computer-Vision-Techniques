@@ -39,6 +39,18 @@ This repository is intended to demonstrate and implement the fundamental topics 
   </div>
 </p>
 
+- **ImageSegmentation**: Tools and algorithms for segmenting an image into `k` clusters/groups.
+<p align="center">
+  <div style="display: inline-block; text-align: center; margin-right: 20px;">
+    <div><strong>Input Image</strong></div>
+    <img src="./ImageSegmentation/giraffe.png" alt="Input Image" width="300" style="border: 1px solid #ddd; padding: 5px;">
+  </div>
+  <div style="display: inline-block; text-align: center;">
+    <div><strong>Segmented Image</strong></div>
+    <img src="./ImageSegmentation/output.jpg" alt="Output Image" width="300" style="border: 1px solid #ddd; padding: 5px;">
+  </div>
+</p>
+
 ## Edge Detection Application Demo
 
 This is an application that strongly relies on Edge Detection to detect whether the Camera is covered or not. Here is a demo video showcasing the output after running the application:
@@ -54,6 +66,10 @@ This sub-repository focuses on various image transformation techniques, includin
 ### Edge Detection
 
 Dedicated to edge detection methods, this sub-repository includes algorithms for identifying boundaries and contours within images. It supports a variety of edge detection techniques, such as Sobel, Canny, and Laplacian, to assist in feature extraction and object recognition tasks.
+
+### Edge Detection
+
+This sub-repository is centered around image segmentation techniques, with a focus on dividing an image into meaningful regions or clusters. Utilizing methods like K-Means clustering, it enables the separation of different objects or areas within an image based on color, texture, and intensity. The tools provided are essential for tasks such as object recognition, scene understanding, and image analysis, making segmentation more accessible and efficient.
 
 ## Usage
 
