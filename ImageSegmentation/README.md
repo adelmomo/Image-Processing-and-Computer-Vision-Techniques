@@ -42,4 +42,4 @@ Here is an example of the input image and the resulting segmented image output:
 To run the image segmentation algorithm on a sample image, use the following command:
 
 ```bash
-python main.py -i giraffe.png -o output.jpg -k 15
+python main.py -i giraffe.png -o output.jpg -k 5
